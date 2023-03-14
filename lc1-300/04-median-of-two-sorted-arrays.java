@@ -3,11 +3,15 @@
     /**
      * 通过 divide conquer 线分解： length of both array: n -> 2
      * 开始时判断长度为even or odd;
-     * 递归求解： 
+     * 递归求解： findKthElement(A, indexA, B, indexB, k);
      *    跳出递归的条件是：1. indexA >= A.length 2: indexB >= B.length 3: k == 1
      *    halfKthOfA = startOfA + k / 2 - 1 < A.length ? A[startOfA + k / 2 - 1] : Integer.MAX_VALUE;
      *    halfKthOfB = startOfB + k / 2 - 1 < B.length ? B[startOfA + k / 2 - 1] : Integer.MAX_VALUE;
-     *    判断 halfKthOfA / halfKthOfB 进一步递归
+     *    判断 halfKthOfA / halfKthOfB 进一步递归:
+          if (halfKthOfA < halfKthOfB) {
+              return findKth(A, indexA + k / 2, B, indexB, k - k / 2);
+          }
+          return findKth(A, indexA, B, indexB + k / 2, k - k / 2);
      */
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
