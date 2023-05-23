@@ -27,7 +27,7 @@ class Solution {
         }
         return topK;
     }
-    // Best Solution for quick select(O(n) vs quicksort O(nlogN)) 
+    // V2: Best Solution for quick select(O(n) vs quicksort O(nlogN)) 
     private Map<Integer, Integer> freq;
     public int[] topKFrequent(int[] nums, int k) {
         if (nums.length <= k) {
