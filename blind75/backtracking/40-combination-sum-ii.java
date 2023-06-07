@@ -16,6 +16,7 @@ class Solution {
         for (int i = start; i < nums.length; i++) {
             if (i > start && nums[i] == nums[i - 1]) continue; // skip duplicate
             list.add(nums[i]);
+            // Each number in candidates may only be used once in the combination.
             backtrack(res, list, nums, target - nums[i], i + 1);
             // backtrack
             list.remove(list.size() - 1);
