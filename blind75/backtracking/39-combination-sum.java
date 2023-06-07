@@ -23,6 +23,7 @@ class Solution {
         for (int i = start; i < candidates.length; i++) {
             // add the number into the combination
             cur.add(candidates[i]);
+            // The same number may be chosen from candidates an unlimited number of times
             backtracking(candidates, target - candidates[i], res, cur, i);
             // backtracking
             cur.remove(cur.size() - 1);
