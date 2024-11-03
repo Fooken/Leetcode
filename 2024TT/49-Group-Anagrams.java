@@ -16,30 +16,11 @@ import java.util.*;
     
     4. Finally, we return a new ArrayList containing all the values from our map, which are the grouped anagrams.
 
-    Time Complexity: O(N * K * log K), where N is the number of strings, and K is the maximum length of a string in strs. This is because for each string, we perform a sorting operation.
+    Time Complexity: O(N * K), where N is the number of strings, and K is the maximum length of a string in strs. This is because for each string, we perform a sorting operation.
     Space Complexity: O(N * K) to store the HashMap.
     Here's a main method to test the solution:
+    
  */
-
-public class Main {
-    public static void main(String[] args) {
-        Solution sl = new Solution();
-        // Test case 1
-        String[] strs1 = {"eat","tea","tan","ate","nat","bat"};
-        System.out.println("Test case 1: " + sl.groupAnagrams(strs1));
-        // Expected output: [["bat"],["nat","tan"],["ate","eat","tea"]]
-        
-        // Test case 2
-        String[] strs2 = {""};
-        System.out.println("Test case 2: " + sl.groupAnagrams(strs2));
-        // Expected output: [[""]]
-        
-        // Test case 3
-        String[] strs3 = {"a"};
-        System.out.println("Test case 3: " + sl.groupAnagrams(strs3));
-        // Expected output: [["a"]]
-    }
-}
 
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
@@ -61,4 +42,26 @@ class Solution {
         return new ArrayList<>(map.values());
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sl = new Solution();
+        // Test case 1
+        String[] strs1 = {"eat","tea","tan","ate","nat","bat"};
+        System.out.println("Test case 1: " + sl.groupAnagrams(strs1));
+        // Expected output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+        
+        // Test case 2
+        String[] strs2 = {""};
+        System.out.println("Test case 2: " + sl.groupAnagrams(strs2));
+        // Expected output: [[""]]
+        
+        // Test case 3
+        String[] strs3 = {"a"};
+        System.out.println("Test case 3: " + sl.groupAnagrams(strs3));
+        // Expected output: [["a"]]
+    }
+}
+
+
 
