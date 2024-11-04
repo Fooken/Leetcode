@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 public class Main {
     public static void main(String[] args) {
         Solution sl = new Solution();
@@ -37,5 +36,59 @@ class Solution {
         }
 
         return dp[n - 1][0];
+    }
+    
+    // Dynamic Programming Approach
+    /**
+     * We use two arrays: noShare and withShare to keep track of the maximum profit in two states.
+     * For each day, we updates both states based on the previous day's states
+     * The final answer is in the last cell of noShare
+     * 
+     * Time Complexity: O(n), where n is the number of days. 
+     * Space Complexity: O(n) for the two arrays. This can be optimized to O(1) by using just
+     */
+    public int maxProfit1(int[] prices) {
+        if (prices == null || prices.length <= 1) {
+            return 0;
+        }
+        
+        int n = prices.length;
+        int[] noShare = new int[n];  // Maximum profit when not holding a share
+        int[] withShare = new int[n];  // Maximum profit when holding a share
+        
+        // Initialize
+        withShare[0] = -prices[0];
+        
+        // Dynamic Programming
+        for (int i = 1; i < n; i++) {
+            // Not holding a share: either keep previous state or sell the share
+            noShare[i] = Math.max(noShare[i-1], withShare[i-1] + prices[i]);
+            
+            // Holding a share: either keep previous state or buy a new share
+            withShare[i] = Math.max(withShare[i-1], noShare[i-1] - prices[i]);
+        }
+        
+        // The maximum profit is in the last cell of noShare
+        return noShare[n-1];
+    }
+
+    /**
+     * 
+     * Explanation:
+        1. We iterate through the array once.
+        2. Whenever the price on the current day is higher than the previous day, we add the difference to our profit.
+        3. This approach essentially captures all upward price movements.
+     */
+
+    // Time Complexity: O(n), where n is the number of days (length of the prices array). 
+    // Space Complexity: O(1), as we only use a constant amount of extra space.
+    public int maxProfit3(int[] prices) {
+        int maxProfit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                maxProfit += prices[i] - prices[i - 1];
+            }
+        }
+        return maxProfit;
     }
 }
