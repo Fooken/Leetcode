@@ -1,8 +1,5 @@
 import  java.util.*;
 
-/**
- * Definition for singly-linked list.
- */
 
 public class Main {
     public static void main(String[] args) {
@@ -40,6 +37,10 @@ public class Main {
     }
 
 }
+
+/**
+ * Definition for singly-linked list.
+ */
 
 class ListNode {
      int val;
