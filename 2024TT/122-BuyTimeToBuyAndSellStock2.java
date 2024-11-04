@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class Main {
     public static void main(String[] args) {
         Solution sl = new Solution();
@@ -11,7 +12,12 @@ public class Main {
         // Expected result: 7
     }
 }
-
+    // Hold at most one share of the stock at any time for each day
+    // Status: 0: no share; 1: with share // dp[n][2]: dp[i][0] no share; dp[i][1]: withShare
+    // state function: 
+    //         dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]); sell on day i
+    //         dp[i][1] = Math.min(dp[i - 1][1], dp[i - 1][0] - prices[i]); just buy on day i
+    // Notice: This approach is more versatile and can be extended to more complex stock trading problems.
 
 class Solution {
     public int maxProfit(int[] prices) {
