@@ -1,4 +1,21 @@
-public class Codec {
+import java.util.*;
+
+public class Mian {
+    public static void main(String[] args) {
+        Codec cc = new Codec();
+
+        // Test case 1:
+        List<String> strs = new ArrayList<>();
+        strs.add("hello");
+        strs.add("world");
+        strs.add("kai");
+        
+
+        System.out.println("Test 1: " + cc.encode(strs));
+
+    }
+}
+class Codec {
     // Chunked Transfer Encoding
     // Encodes a list of strings to a single string.
     public String encode(List<String> strs) {

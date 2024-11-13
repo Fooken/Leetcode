@@ -1,7 +1,27 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sl = new Solution();
+
+        // Test case 1:
+        int[] nums = {1, 2, 3, 7};
+
+        int[] res = sl.productExceptSelf(nums);
+
+        System.out.print("[");
+        for (int i = 0; i < res.length - 1; i++) {
+            System.out.print(res[i] + ", ");
+        }
+        System.out.print(res[res.length - 1] + "]");
+
+    }
+}
+
 class Solution {
     // DS: Array T:O(n); S:O(n)
     // Ideas: two way: go(the left of element) & back(the right of element); L/R/ans Arrays; ans = L*R;
-    public int[] productExceptSelf(int[] nums) {
+    public int[] productExceptSelf0(int[] nums) {
         int len = nums.length;
         int[] L = new int[len];
         int[] R = new int[len];

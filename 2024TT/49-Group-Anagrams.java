@@ -1,5 +1,26 @@
 
 import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sl = new Solution();
+        // Test case 1
+        String[] strs1 = {"eat","tea","tan","ate","nat","bat"};
+        System.out.println("Test case 1: " + sl.groupAnagrams(strs1));
+        // Expected output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+        
+        // Test case 2
+        String[] strs2 = {""};
+        System.out.println("Test case 2: " + sl.groupAnagrams(strs2));
+        // Expected output: [[""]]
+        
+        // Test case 3
+        String[] strs3 = {"a"};
+        System.out.println("Test case 3: " + sl.groupAnagrams(strs3));
+        // Expected output: [["a"]]
+    }
+}
+
 /**
  * Explanation:
     1. We first check if the input array is null or empty. If so, we return an empty list.
@@ -22,6 +43,7 @@ import java.util.*;
     
  */
 
+
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         if (strs == null || strs.length == 0) {
@@ -43,25 +65,7 @@ class Solution {
     }
 }
 
-public class Main {
-    public static void main(String[] args) {
-        Solution sl = new Solution();
-        // Test case 1
-        String[] strs1 = {"eat","tea","tan","ate","nat","bat"};
-        System.out.println("Test case 1: " + sl.groupAnagrams(strs1));
-        // Expected output: [["bat"],["nat","tan"],["ate","eat","tea"]]
-        
-        // Test case 2
-        String[] strs2 = {""};
-        System.out.println("Test case 2: " + sl.groupAnagrams(strs2));
-        // Expected output: [[""]]
-        
-        // Test case 3
-        String[] strs3 = {"a"};
-        System.out.println("Test case 3: " + sl.groupAnagrams(strs3));
-        // Expected output: [["a"]]
-    }
-}
+
 
 
 
